@@ -20,7 +20,7 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-
+    private val TAG = "MainActivity"
     private lateinit var binding: ActivityMainBinding
     private val mainViewModel: MainViewModel by viewModels()
 
@@ -30,8 +30,22 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        mainViewModel.refreshWeather()
+        updateList()
 
+        binding.swiperefresh.setOnRefreshListener {
+            Log.i(TAG, "onRefresh called from SwipeRefreshLayout")
+            // This method performs the actual data-refresh operation.
+            // The method calls setRefreshing(false) when it's finished.
+            updateList()
+        }
+
+
+
+    }
+
+
+    fun updateList(){
+        mainViewModel.refreshWeather()
     }
 
 
