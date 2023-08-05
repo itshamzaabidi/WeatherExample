@@ -1,15 +1,14 @@
 package com.example.myapplication.data.repositories
 
 import com.example.myapplication.data.local.AppDatabase
-import com.example.myapplication.data.local.entities.TimeLineEntity
 import com.example.myapplication.data.local.entities.ValueEntity
 import javax.inject.Inject
 
 interface ValueRepository {
 
-    fun finAll(): List<ValueEntity>
+    fun finAll(): List<ValueEntity?>
 
-    fun findOne(valueId: Long): ValueEntity
+    fun findOne(valueId: Long): ValueEntity?
 
 }
 
@@ -17,12 +16,12 @@ interface ValueRepository {
 class ValueRepositoryImpl @Inject constructor(
     private val appDatabase: AppDatabase,
 ) : ValueRepository {
-    override fun finAll(): List<ValueEntity> {
-        TODO("Not yet implemented")
+    override fun finAll(): List<ValueEntity?> {
+        return appDatabase.valueDao().findAll()
     }
 
-    override fun findOne(valueId: Long): ValueEntity {
-        TODO("Not yet implemented")
+    override fun findOne(valueId: Long): ValueEntity? {
+       return appDatabase.valueDao().findOne(valueId)
     }
 
 }

@@ -9,7 +9,7 @@ interface ValueDao: BaseDao<ValueEntity> {
     @Query("SELECT * FROM weather_value ")
     fun findAll(): List<ValueEntity?>
 
-   /* @Query("SELECT * FROM weather_value WHERE id = :id")
-    suspend fun findOne(id: Long): ValueEntity?*/
+    @Query("SELECT * FROM weather_value WHERE id = :id")
+     fun findOne(id: Long): ValueEntity?
 
 }

@@ -11,7 +11,7 @@ interface TimeLineDao : BaseDao<TimeLineEntity> {
     @Query("SELECT * FROM time_line ")
     fun findAll(): List<TimeLineEntity?>
 
-    /*@Query("SELECT * FROM time_line WHERE id = :id")
-    suspend fun findOne(id: Long): TimeLineEntity?*/
+    @Query("SELECT * FROM time_line WHERE id = :id")
+     fun findOne(id: Long): TimeLineEntity?
 
 }

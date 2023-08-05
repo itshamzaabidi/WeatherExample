@@ -43,10 +43,11 @@ class WeatherListAdapter (
             binding.txtAirSpeedValue.text = weatherValueeUiHolder.windSpeed.toString()
             binding.txtTemperatureValue.text = weatherValueeUiHolder.temperature.toString()
             binding.txtTemperatureApparent.text = weatherValueeUiHolder.temperatureApparent.toString()
+            binding.root.setOnClickListener {
+                listener.onItemClick(weatherValueeUiHolder)
+            }
 
         }
-
-
 
     }
 

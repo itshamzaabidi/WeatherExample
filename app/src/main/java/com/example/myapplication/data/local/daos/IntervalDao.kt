@@ -9,7 +9,7 @@ interface IntervalDao: BaseDao<IntervalEntity> {
     @Query("SELECT * FROM interval ")
     fun findAll(): List<IntervalEntity?>
 
-    /*@Query("SELECT * FROM interval WHERE id = :id")
-    suspend fun findOne(id: Long): IntervalEntity?*/
+    @Query("SELECT * FROM interval WHERE id = :id")
+     fun findOne(id: Long): IntervalEntity?
 
 }
